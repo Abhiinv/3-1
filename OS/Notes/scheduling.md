@@ -6,8 +6,8 @@ API Allows specifying PCS, or SCS during thread creation:
 - `PTHREAD_SCOPRE_SYSTEM`
 
 
-`int pthread_attr_setscore(pthread_attr_t *attr, int scope)`
-`int pthread_attr_getscore(pthread_attr_t *attr, int *scope)`
+`int pthread_attr_setscope(pthread_attr_t *attr, int scope)`
+`int pthread_attr_getscope(pthread_attr_t *attr, int *scope)`
 
 on success returns 0; on error return non-zero error numebr
 
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     pthread_t tid[NUM_THREADS];
     pthread_attr_t attr;
 
-    pthread_attr_inti(&attr);
+    pthread_attr_init(&attr);
 
     if (pthread_attr_getscope(&attr, &scope) != 0) 
         fprintf(stderr, "Error");
